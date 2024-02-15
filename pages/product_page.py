@@ -34,11 +34,19 @@ class ProductPage(BasePage):
             .until(ec.visibility_of_element_located(ProductPageLocators.MESSAGE_PRODUCT_NAME))
         assert el_message.text == product_name, \
             f"Expected correct '{product_name}' product to be added to cart but" \
-            f" the page returned '{el_message.text}'message"
+            f" the page returned '{el_message.text}' message"
 
     def should_message_match_price(self, product_price):
         el_message = WebDriverWait(self.browser, 5).until(ec.visibility_of_element_located(
             ProductPageLocators.MESSAGE_PRODUCT_PRICE))
         assert el_message.text == product_price, \
             f"Expected correct '{product_price}' price to be added to cart but" \
-            f" the page returned '{el_message.text}'message"
+            f" the page returned '{el_message.text}' message"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_success_message_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared, but should be"
