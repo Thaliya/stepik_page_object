@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     CART_BUTTON = (By.CSS_SELECTOR, ".basket-mini .btn")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class BasketPageLocators:
@@ -19,6 +20,10 @@ class BasketPageLocators:
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    REGISTER_EMAIL = (By.NAME, "registration-email")
+    REGISTER_PASSWORD = (By.NAME, "registration-password1")
+    REGISTER_REPEAT = (By.NAME, "registration-password2")
+    REGISTER_SUBMIT = (By.NAME, "registration_submit")
 
 
 class ProductPageLocators:
