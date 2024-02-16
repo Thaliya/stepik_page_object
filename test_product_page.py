@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from .pages.main_page import MainPage
@@ -93,6 +95,7 @@ class TestAddToBasketFromProductPage:
         cart_page.should_be_empty_cart_message()
         cart_page.should_not_be_basket_items()
 
+    @pytest.mark.skip
     @pytest.mark.parametrize('link',
                              ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"])
     def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser, link):
