@@ -25,7 +25,7 @@ class ProductPage(BasePage):
     def should_be_message_product_price(self):
         self.is_element_present(*ProductPageLocators.MESSAGE_PRODUCT_PRICE)
 
-    def add_to_cart(self):
+    def add_product_to_cart(self):
         el_add_to_card = self.browser.find_element(*ProductPageLocators.ADD_TO_CART)
         el_add_to_card.click()
 

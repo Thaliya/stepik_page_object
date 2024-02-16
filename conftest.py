@@ -9,6 +9,7 @@ def pytest_addoption(parser):
     parser.addoption('--language', action='store', default='ru',
                      help="Choose language: e.g. 'fr' or 'es'")
 
+
 def pytest_configure(config):
     config.addinivalue_line(
         "markers", "user_add_to_basket: mark test to run only on TestUserAddToBasketFromProductPage class tests"
@@ -16,6 +17,10 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers", "add_to_basket: mark test to run only on TestAddToBasketFromProductPage class tests"
     )
+    config.addinivalue_line(
+        "markers", "need_review: mark test to run only on tests that need review"
+    )
+
 
 @pytest.fixture(scope="function")
 def browser(request):
